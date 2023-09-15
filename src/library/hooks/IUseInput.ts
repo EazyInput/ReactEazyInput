@@ -1,5 +1,7 @@
-export interface IUseInput<T> {
-  value: T;
-  updateValue: (element: HTMLInputElement) => void;
+export interface IUseInput<TInputType> {
+  value: TInputType;
+  setValue: (event: React.FormEvent<HTMLInputElement>) => void;
   valid: boolean;
+  error: string;
+  dirty: boolean;
 }

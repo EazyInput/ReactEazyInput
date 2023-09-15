@@ -4,7 +4,15 @@ export const BaseEazyInput: React.FC<BaseEazyInputProperties> = ({
   type,
   useInput,
 }) => {
-  return <input value={getValue(type, useInput)} />;
+  return (
+    <input
+      onChange={useInput.setValue}
+      onFocus={useInput.setValue}
+      onInput={useInput.setValue}
+      type={type}
+      value={getValue(type, useInput)}
+    />
+  );
 };
 
 interface BaseEazyInputProperties {
