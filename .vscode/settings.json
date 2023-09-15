@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "files.autoSaveDelay": 5000,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.eol": "\n",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active"
+}
