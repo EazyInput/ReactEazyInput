@@ -2,7 +2,7 @@ import { IUseInput, InputType } from "..";
 
 export function getValue(
   inputType: string,
-  useInput: IUseInput<InputType>
+  useInput: IUseInput<InputType>,
 ): string {
   switch (inputType) {
     case "text":

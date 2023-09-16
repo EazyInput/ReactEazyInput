@@ -1,4 +1,4 @@
-import { DerivedInputProperties, EazyBaseInput, IUseInput } from "..";
+import { DerivedInputProperties, EazyBaseInput } from "..";
 
 export const EazyTextInput: React.FC<EazyTextInputProperties> = ({
   id,
@@ -17,4 +17,4 @@ export const EazyTextInput: React.FC<EazyTextInputProperties> = ({
   );
 };
 
-interface EazyTextInputProperties extends DerivedInputProperties<string> {}
+type EazyTextInputProperties = DerivedInputProperties<string>;

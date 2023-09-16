@@ -14,6 +14,7 @@ export type { IUseInput } from "./interfaces/IUseInput";
 export type { IValid } from "./interfaces/IValid";
 export type { InputType } from "./interfaces/InputType";
 export type { DerivedInputProperties } from "./interfaces/DerivedInputProperties";
+export type { IValidationResult } from "./interfaces/IValidationResult";
 
 // Hooks
 export { useInput } from "./hooks/UseInput";
@@ -22,3 +23,4 @@ export { useTextInput } from "./hooks/UseTextInput";
 // Utilities
 export { getValue } from "./utilities/GetValue";
 export { submitDisabled } from "./utilities/SubmitDisabled";
+export { matchingPasswords } from "./utilities/MatchingPasswords";

@@ -2,7 +2,7 @@ import { IValid, submitDisabled } from "../../library";
 
 describe("SubmitDisabled", () => {
   it("returns true for any invalid inputs", () => {
-    var inputs: Array<IValid> = [
+    const inputs: IValid[] = [
       {
         valid: false,
       },
@@ -13,7 +13,7 @@ describe("SubmitDisabled", () => {
   });
 
   it("returns false for all valid inputs", () => {
-    var inputs: Array<IValid> = [
+    const inputs: IValid[] = [
       {
         valid: true,
       },

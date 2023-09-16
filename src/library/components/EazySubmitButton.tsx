@@ -12,6 +12,6 @@ export const EazySubmitButton: React.FC<EazySubmitButtonProperties> = ({
 };
 
 interface EazySubmitButtonProperties {
-  inputs: Array<IValid>;
+  inputs: IValid[];
   text?: string;
 }

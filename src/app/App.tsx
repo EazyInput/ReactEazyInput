@@ -4,6 +4,7 @@ import {
   EazyPasswordInput,
   EazySubmitButton,
   EazyTextInput,
+  matchingPasswords,
   useTextInput,
 } from "../library";
 
@@ -12,6 +13,10 @@ const App: React.FC = () => {
   const username = useTextInput();
   const passwordId = useId();
   const password = useTextInput();
+  const confirmPasswordId = useId();
+  const confirmPassword = useTextInput("", (value) =>
+    matchingPasswords(password.value, value),
+  );
 
   return (
     <form>
@@ -27,7 +32,17 @@ const App: React.FC = () => {
           <EazyPasswordInput id={passwordId} useInput={password} />
         </div>
       </div>
-      <EazySubmitButton inputs={[username, password]} />
+      <div>
+        <EazyLabel id={confirmPasswordId} text="Confirm Password:" />
+        <div>
+          <EazyPasswordInput
+            id={confirmPasswordId}
+            useInput={confirmPassword}
+          />
+        </div>
+        <p>{confirmPassword.error}</p>
+      </div>
+      <EazySubmitButton inputs={[username, password, confirmPassword]} />
     </form>
   );
 };

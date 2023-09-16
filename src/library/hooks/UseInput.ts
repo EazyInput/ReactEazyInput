@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { IUseInput, InputType } from "..";
+import { useEffect, useState } from "react";
+import { IUseInput, IValidationResult, InputType } from "..";
 
 export function useInput<TInputType extends InputType>(
   initial: TInputType,
-  mappingFunc: (element: HTMLInputElement) => TInputType
+  mappingFunc: (element: HTMLInputElement) => TInputType,
+  validationFunc?: (value: TInputType) => IValidationResult,
 ): IUseInput<TInputType> {
   const [value, updateValue] = useState<TInputType>(initial);
   const [valid, setValid] = useState<boolean>(false);
@@ -12,10 +13,18 @@ export function useInput<TInputType extends InputType>(
 
   const setValue = (event: React.FormEvent<HTMLInputElement>): void => {
     const element = event.target as HTMLInputElement;
-    updateValue(mappingFunc(element));
-    setValid(element.validity.valid);
-    setError(element.validationMessage);
+    const value = mappingFunc(element);
+    updateValue(value);
     setDirty(true);
+
+    if (validationFunc) {
+      const result = validationFunc(value);
+      setValid(element.validity.valid && result.valid);
+      setError(result.error === "" ? element.validationMessage : result.error);
+    } else {
+      setValid(element.validity.valid);
+      setError(element.validationMessage);
+    }
   };
 
   return {

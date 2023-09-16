@@ -1,9 +1,10 @@
-import { DerivedInputProperties, EazyBaseInput, IUseInput } from "..";
+import { DerivedInputProperties, EazyBaseInput } from "..";
 
 export const EazyPasswordInput: React.FC<EazyPasswordInputProperties> = ({
   id,
   placeholder,
   required = true,
+  showPassword = false,
   useInput,
 }) => {
   return (
@@ -11,10 +12,12 @@ export const EazyPasswordInput: React.FC<EazyPasswordInputProperties> = ({
       id={id}
       placeholder={placeholder}
       required={required}
-      type="password"
+      type={showPassword ? "text" : "password"}
       useInput={useInput}
     />
   );
 };
 
-interface EazyPasswordInputProperties extends DerivedInputProperties<string> {}
+interface EazyPasswordInputProperties extends DerivedInputProperties<string> {
+  showPassword?: boolean;
+}
