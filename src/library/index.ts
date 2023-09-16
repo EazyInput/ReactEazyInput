@@ -1,13 +1,24 @@
 // Base
-export { BaseEazyInput } from "./base/BaseEazyInput";
+export { EazyBaseInput } from "./base/EazyBaseInput";
+
+// Components
+export { EazySubmitButton } from "./components/EazySubmitButton";
+export { EazyLabel } from "./components/EazyLabel";
 
 // Derived
+export { EazyTextInput } from "./derived/EazyTextInput";
+export { EazyPasswordInput } from "./derived/EazyPasswordInput";
+
+// Interfaces
+export type { IUseInput } from "./interfaces/IUseInput";
+export type { IValid } from "./interfaces/IValid";
+export type { InputType } from "./interfaces/InputType";
+export type { DerivedInputProperties } from "./interfaces/DerivedInputProperties";
 
 // Hooks
 export { useInput } from "./hooks/UseInput";
-export type { InputType } from "./hooks/InputType";
 export { useTextInput } from "./hooks/UseTextInput";
-export type { IUseInput } from "./hooks/IUseInput";
 
 // Utilities
 export { getValue } from "./utilities/GetValue";
+export { submitDisabled } from "./utilities/SubmitDisabled";

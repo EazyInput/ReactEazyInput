@@ -1,3 +1,3 @@
 export interface IValid {
-  isValid: boolean;
+  valid: boolean;
 }

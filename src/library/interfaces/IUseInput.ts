@@ -1,7 +1,8 @@
-export interface IUseInput<TInputType> {
+import { IValid } from "..";
+
+export interface IUseInput<TInputType> extends IValid {
   value: TInputType;
   setValue: (event: React.FormEvent<HTMLInputElement>) => void;
-  valid: boolean;
   error: string;
   dirty: boolean;
 }

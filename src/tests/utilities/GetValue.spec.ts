@@ -4,8 +4,10 @@ describe("GetValue", () => {
   it("text has correct value", () => {
     const input: IUseInput<string> = {
       value: "myValue",
-      updateValue: jest.fn(),
+      setValue: jest.fn(),
       valid: false,
+      error: "",
+      dirty: false,
     };
 
     const result = getValue("text", input);
@@ -16,8 +18,10 @@ describe("GetValue", () => {
   it("default has correct value", () => {
     const input: IUseInput<string> = {
       value: "myValue",
-      updateValue: jest.fn(),
+      setValue: jest.fn(),
       valid: false,
+      error: "",
+      dirty: false,
     };
 
     const result = getValue("nonsense", input);
