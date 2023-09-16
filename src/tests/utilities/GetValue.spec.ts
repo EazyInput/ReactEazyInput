@@ -6,6 +6,7 @@ describe("GetValue", () => {
       value: "myValue",
       setValue: jest.fn(),
       valid: false,
+      setValidationResult: jest.fn(),
       error: "",
       dirty: false,
     };
@@ -19,6 +20,7 @@ describe("GetValue", () => {
     const input: IUseInput<string> = {
       value: "myValue",
       setValue: jest.fn(),
+      setValidationResult: jest.fn(),
       valid: false,
       error: "",
       dirty: false,

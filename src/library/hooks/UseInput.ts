@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IUseInput, IValidationResult, InputType } from "..";
 
 export function useInput<TInputType extends InputType>(
@@ -27,10 +27,16 @@ export function useInput<TInputType extends InputType>(
     }
   };
 
+  const setValidationResult = (result: IValidationResult): void => {
+    setValid(result.valid);
+    setError(result.error);
+  };
+
   return {
     value,
     setValue,
     valid,
+    setValidationResult,
     error,
     dirty,
   };

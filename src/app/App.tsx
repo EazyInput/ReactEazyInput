@@ -3,46 +3,35 @@ import {
   EazyLabel,
   EazyPasswordInput,
   EazySubmitButton,
-  EazyTextInput,
-  matchingPasswords,
+  EazyTextTemplate,
+  EazyValidationMessage,
+  useMatchingPasswords,
   useTextInput,
 } from "../library";
 
 const App: React.FC = () => {
-  const usernameId = useId();
   const username = useTextInput();
   const passwordId = useId();
-  const password = useTextInput();
   const confirmPasswordId = useId();
-  const confirmPassword = useTextInput("", (value) =>
-    matchingPasswords(password.value, value),
-  );
+  const [first, second] = useMatchingPasswords();
 
   return (
     <form>
-      <div>
-        <EazyLabel id={usernameId} text="Username:" />
-        <div>
-          <EazyTextInput id={usernameId} useInput={username} />
-        </div>
-      </div>
+      <EazyTextTemplate useInput={username} labelText="Username:" />
       <div>
         <EazyLabel id={passwordId} text="Password:" />
         <div>
-          <EazyPasswordInput id={passwordId} useInput={password} />
+          <EazyPasswordInput id={passwordId} useInput={first} />
         </div>
       </div>
       <div>
         <EazyLabel id={confirmPasswordId} text="Confirm Password:" />
         <div>
-          <EazyPasswordInput
-            id={confirmPasswordId}
-            useInput={confirmPassword}
-          />
+          <EazyPasswordInput id={confirmPasswordId} useInput={second} />
         </div>
-        <p>{confirmPassword.error}</p>
+        <EazyValidationMessage useInput={second} />
       </div>
-      <EazySubmitButton inputs={[username, password, confirmPassword]} />
+      <EazySubmitButton inputs={[username, first, second]} />
     </form>
   );
 };
