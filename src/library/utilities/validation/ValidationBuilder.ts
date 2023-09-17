@@ -6,7 +6,7 @@ import {
 } from "../..";
 
 export class ValidationBuilder {
-  private validators: Array<IValidator>;
+  private validators: IValidator[];
 
   public constructor() {
     this.validators = [];
@@ -21,12 +21,12 @@ export class ValidationBuilder {
     };
   }
 
-  public isRequired(value: string): ValidationBuilder {
+  public isRequired(value: string): this {
     this.validators.push(new RequiredValidator(value));
     return this;
   }
 
-  public matches(first: string, second: string): ValidationBuilder {
+  public matches(first: string, second: string): this {
     this.validators.push(new MatchesValidator(first, second));
     return this;
   }

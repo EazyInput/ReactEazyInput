@@ -1,10 +1,16 @@
-import { IUseInput, InputType } from "..";
+import { IUseInput, InputType, determineStyleClass } from "..";
 
 export const EazyValidationMessage: React.FC<
   EazyValidationMessageProperties
-> = ({ useInput }) => {
+> = ({ errorClass, messageClass, successClass, useInput }) => {
   return (
     <p
+      className={determineStyleClass(
+        useInput,
+        messageClass,
+        errorClass,
+        successClass,
+      )}
       style={{
         visibility: useInput.valid || !useInput.dirty ? "hidden" : "visible",
       }}
@@ -15,5 +21,8 @@ export const EazyValidationMessage: React.FC<
 };
 
 interface EazyValidationMessageProperties {
+  errorClass?: string;
+  messageClass?: string;
+  successClass?: string;
   useInput: IUseInput<InputType>;
 }

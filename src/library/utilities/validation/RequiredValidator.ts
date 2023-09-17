@@ -13,9 +13,7 @@ export class RequiredValidator implements IValidator {
   }
 
   public valid(): IValidationResult {
-    return this.value !== null &&
-      this.value !== undefined &&
-      this.value.length > 0
+    return this.value !== undefined && this.value.length > 0
       ? validResult()
       : inValidResult("A value is required.");
   }
