@@ -31,12 +31,12 @@ export const EazyBaseInput: React.FC<BaseEazyInputProperties> = ({
 };
 
 interface BaseEazyInputProperties {
-  errorClass?: string;
-  inputStaticClass?: string;
+  errorClass: string;
+  inputStaticClass: string;
   id: string;
   placeholder?: string;
   required?: boolean;
-  successClass?: string;
+  successClass: string;
   type: string;
   useInput: IUseInput<InputType>;
 }

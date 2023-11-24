@@ -1,49 +1,44 @@
 import { useId } from "react";
-import {
-  EazyLabel,
-  EazyTextInput,
-  EazyValidationMessage,
-  TemplateInputProperties,
-} from "..";
+import { EazyTextInput, TemplateInputProperties } from "..";
+import { EazyTemplate } from "./EazyTemplate";
 
 export const EazyTextTemplate: React.FC<EazyTextProperties> = ({
-  componentWrapperClass,
   errorClass,
+  innerWrapperClass,
   inputClass,
-  inputWrapperClass,
   labelClass,
   labelText,
-  messageClass,
-  placeholder,
+  outerWrapperClass,
   required,
   successClass,
+  validationMessageClass,
+  placeholder,
   useInput,
 }) => {
   const id = useId();
 
   return (
-    <div className={componentWrapperClass}>
-      <div>
-        <EazyLabel className={labelClass} id={id} text={labelText} />
-      </div>
-      <div className={inputWrapperClass}>
-        <EazyTextInput
-          errorClass={errorClass}
-          id={id}
-          inputClass={inputClass}
-          placeholder={placeholder}
-          required={required}
-          successClass={successClass}
-          useInput={useInput}
-        />
-      </div>
-      <EazyValidationMessage
+    <EazyTemplate
+      errorClass={errorClass}
+      id={id}
+      innerWrapperClass={innerWrapperClass}
+      labelClass={labelClass}
+      labelText={labelText}
+      outerWrapperClass={outerWrapperClass}
+      successClass={successClass}
+      useInput={useInput}
+      validationMessageClass={validationMessageClass}
+    >
+      <EazyTextInput
         errorClass={errorClass}
-        messageClass={messageClass}
+        id={id}
+        inputClass={inputClass}
+        placeholder={placeholder}
+        required={required}
         successClass={successClass}
         useInput={useInput}
       />
-    </div>
+    </EazyTemplate>
   );
 };
 

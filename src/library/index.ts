@@ -30,9 +30,6 @@ export { useMatchingPasswords } from "./hooks/UseMatchingPasswords";
 // Opinionated
 export { EazyUsername } from "./opinionated/EazyUsername";
 
-// Stylized
-export { EazyBulmaUsername } from "./stylized/EazyBulmaUsername";
-
 // Templates
 export { EazyTextTemplate } from "./templates/EazyTextTemplate";
 export { EazyPasswordTemplate } from "./templates/EazyPasswordTemplate";

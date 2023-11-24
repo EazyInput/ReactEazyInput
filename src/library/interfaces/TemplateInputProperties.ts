@@ -1,15 +1,9 @@
 import { IUseInput } from "..";
+import { StyleProperties } from "./StyleProperties";
 
-export interface TemplateInputProperties<TInputType> {
-  componentWrapperClass?: string;
-  errorClass?: string;
-  inputClass?: string;
-  inputWrapperClass?: string;
-  labelClass?: string;
+export interface TemplateInputProperties<TInputType> extends StyleProperties {
   labelText: string;
-  messageClass?: string;
   placeholder?: string;
   required?: boolean;
-  successClass?: string;
   useInput: IUseInput<TInputType>;
 }

@@ -1,17 +1,17 @@
 export const EazyLabel: React.FC<EazyLabelProperties> = ({
-  className,
+  labelClass,
   id,
   text,
 }) => {
   return (
-    <label className={className} htmlFor={id}>
+    <label className={labelClass} htmlFor={id}>
       {text}
     </label>
   );
 };
 
 interface EazyLabelProperties {
-  className?: string;
+  labelClass?: string;
   id: string;
   text: string;
 }

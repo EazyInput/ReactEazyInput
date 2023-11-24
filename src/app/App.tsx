@@ -1,11 +1,10 @@
 import {
-  EazyBulmaUsername,
-  EazyPasswordTemplate,
   EazySubmitButton,
-  EazyTextTemplate,
   useMatchingPasswords,
   useTextInput,
 } from "../library";
+import { BulmaPassword } from "./BulmaPassword";
+import { BulmaUsername } from "./BulmaUsername";
 
 const App: React.FC = () => {
   const username = useTextInput();
@@ -13,9 +12,9 @@ const App: React.FC = () => {
 
   return (
     <form>
-      <EazyBulmaUsername useInput={username} />
-      {/* <EazyPasswordTemplate useInput={first} />
-      <EazyPasswordTemplate useInput={second} /> */}
+      <BulmaUsername useInput={username} />
+      <BulmaPassword useInput={first} />
+      <BulmaPassword useInput={second} />
       <EazySubmitButton inputs={[username, first, second]} />
     </form>
   );

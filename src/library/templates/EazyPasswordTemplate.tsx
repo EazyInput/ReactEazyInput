@@ -1,37 +1,43 @@
 import { useId } from "react";
-import {
-  EazyLabel,
-  EazyPasswordInput,
-  EazyValidationMessage,
-  IUseInput,
-} from "..";
+import { EazyPasswordInput, TemplateInputProperties } from "..";
+import { EazyTemplate } from "./EazyTemplate";
 
 export const EazyPasswordTemplate: React.FC<EazyPasswordTemplateProperties> = ({
+  errorClass,
+  innerWrapperClass,
+  inputClass,
+  labelClass,
   labelText,
+  outerWrapperClass,
+  successClass,
+  validationMessageClass,
   placeholder,
   useInput,
 }) => {
   const id = useId();
 
   return (
-    <div>
-      <div>
-        <EazyLabel id={id} text={labelText} />
-      </div>
-      <div>
-        <EazyPasswordInput
-          id={id}
-          placeholder={placeholder}
-          useInput={useInput}
-        />
-      </div>
-      <EazyValidationMessage useInput={useInput} />
-    </div>
+    <EazyTemplate
+      errorClass={errorClass}
+      id={id}
+      innerWrapperClass={innerWrapperClass}
+      labelClass={labelClass}
+      labelText={labelText}
+      outerWrapperClass={outerWrapperClass}
+      successClass={successClass}
+      useInput={useInput}
+      validationMessageClass={validationMessageClass}
+    >
+      <EazyPasswordInput
+        errorClass={errorClass}
+        successClass={successClass}
+        id={id}
+        placeholder={placeholder}
+        inputClass={inputClass}
+        useInput={useInput}
+      />
+    </EazyTemplate>
   );
 };
 
-interface EazyPasswordTemplateProperties {
-  labelText: string;
-  placeholder: string;
-  useInput: IUseInput<string>;
-}
+type EazyPasswordTemplateProperties = TemplateInputProperties<string>;

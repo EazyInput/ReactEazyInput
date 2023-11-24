@@ -1,25 +1,26 @@
-import { EazyTextTemplate, TemplateInputProperties } from "..";
+import { EazyTextTemplate } from "..";
+import { OpinionatedInputProperties } from "../interfaces/OpinionatedInputProperties";
 
 export const EazyUsername: React.FC<EazyUsernameProperties> = ({
-  componentWrapperClass,
+  outerWrapperClass,
   errorClass,
+  innerWrapperClass,
   inputClass,
-  inputWrapperClass,
   labelClass,
   labelText = "Username",
-  messageClass,
   placeholder = "Username",
   required = true,
   successClass,
   useInput,
+  validationMessageClass,
 }) => {
   return (
     <EazyTextTemplate
-      componentWrapperClass={componentWrapperClass}
+      outerWrapperClass={outerWrapperClass}
       errorClass={errorClass}
       inputClass={inputClass}
-      inputWrapperClass={inputWrapperClass}
-      messageClass={messageClass}
+      innerWrapperClass={innerWrapperClass}
+      validationMessageClass={validationMessageClass}
       labelClass={labelClass}
       labelText={labelText}
       placeholder={placeholder}
@@ -30,4 +31,4 @@ export const EazyUsername: React.FC<EazyUsernameProperties> = ({
   );
 };
 
-type EazyUsernameProperties = TemplateInputProperties<string>;
+type EazyUsernameProperties = OpinionatedInputProperties<string>;
